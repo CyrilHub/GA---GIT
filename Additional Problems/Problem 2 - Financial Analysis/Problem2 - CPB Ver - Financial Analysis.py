@@ -62,9 +62,8 @@ def list_profit(revenues, costs):
 (sum the profits and divide by number of months).'''
 def average_profit(profits):
     print ("in verage_profit ")
-    print (list_profit(monthly_revenue, monthly_costs))
     average_profit_value = 0
-    for i in range(list_profit(monthly_revenue, monthly_costs)):
+    for i in range(range(list_profit(monthly_revenue, monthly_costs))):
         print (i)
     #list_profit(monthly_revenue, monthly_costs))
 
