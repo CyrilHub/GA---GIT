@@ -9,6 +9,6 @@ def finder(object,target):
 
 
 object_list = ["Maria","Dana","David","Lauren","David"]
-look_for = "Dan"
+look_for = "Dana"
 
 finder(object_list,look_for)
