@@ -42,37 +42,51 @@ monthly_revenue = [1099155, 1146339, 1110887, 1163262, 1041463, 1019497, 1022815
 monthly_costs   = [945060, 979951, 925308, 995034, 971441, 968235, 923906, 907451, 904476, 960334, 920517, 990514, 974620, 923660, 911224, 976986, 986440, 963230, 900295, 961553, 951197, 961831, 949710, 974820]
 
 
-'''- A list of every month’s profit (Revenue - Cost). Return this list in a function called list_profit()'''
+'''- A list of every month’s profit (Revenue - Cost).
+Return this list in a function called list_profit()'''
 def list_profit(revenues, costs):
-    # Take jan revenue & costs
-    # Substract revenue - cost
-    # Store this value
-    i_list = []
     profit_monthly_aggregate = []
     for i in range(len(revenues)):
-        i_list.append(i)
-        profit_monthly = revenues[i] - costs[i]
-        profit_monthly_aggregate.append(profit_monthly)
+        profit_monthly_aggregate.append(revenues[i] - costs[i])
     return profit_monthly_aggregate
-#print (list_profit(monthly_revenue, monthly_costs))
+
+#Test: for list_profit
+print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+list_profit_returned = list_profit(monthly_revenue, monthly_costs)
+print(list_profit_returned)
 
 
-'''Define a function called average_profit() that takes a list of profits
-(your output from part 1) and returns the average profit across the time window
-(sum the profits and divide by number of months).'''
+
+#Define a function called average_profit() that takes a list of profits
+#(your output from part 1) and returns the average profit across the time window
+#sum the profits and divide by number of months).
 def average_profit(profits):
-    print ("in verage_profit ")
-    average_profit_value = 0
-    for i in range(range(list_profit(monthly_revenue, monthly_costs))):
-        print (i)
-    #list_profit(monthly_revenue, monthly_costs))
+    print ("TEST:1: in average_profit ")
+    total_profit_value = 0
+    for i in range(len(profits)):
+        #TEMP TEST::
+        print ("TEST:2: index for profit " + str(i))
+        print ("TEST:3: profits[i]" + str(profits[i]))
+        print ("TEST:4: total_profit_value " + str(total_profit_value))
+        total_profit_value += profits[i]
+    average_profit_value = total_profit_value / len(profits)
+    return average_profit_value
 
-print (average_profit(list_profit(monthly_revenue, monthly_costs)))
+#TEST
+average_profit_returned = average_profit(list_profit_returned)
+print("TEST:5: average_profit_value " + str(average_profit_returned))
 
 
+'''
+- Define a function called max_profit() that accepts a list of profits
+(your output from part 1) and returns the max profit it achieved in the time
+window. I don’t care which month this profit was achieved in, simply the profit
+ amount.
+'''
 
+def max_profit(profits):
+    max_profit_value = max(profits)
+    return max_profit_value
 
-
-
-#def max_profit(profits):
-    #pass
+max_profit_returned = max_profit(list_profit_returned)
+print ("TEST:6: max_profit_returned = " + str(max_profit_returned))

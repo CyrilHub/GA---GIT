@@ -26,6 +26,7 @@ def list_profit(revenues, costs):
     for i in range(len(monthly_revenue)):
         profit.append(monthly_revenue[i] - monthly_costs[i])
 
+
     return profit
 
 def average_profit(profits):
