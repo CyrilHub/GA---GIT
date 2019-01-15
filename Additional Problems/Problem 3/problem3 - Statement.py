@@ -18,10 +18,37 @@
 # list of "social security numbers" for easier debugging. You can run your function on the real
 # list I've provided later :)
 
-ss = ['605459141','642780462', '502226390', '605459141', '967844690', '822882635', '884194807',
-'324324322', '945418445', '967844690','715993228', '343416534', '360189400', '597138344',
-'889537330', '791174052', '514363366', '722787843', '109117347', '736257459',
-'133439624', '160806690', '889537330', '715993228']
+ss = ['605459141','642780462', '502226390', '605459141', '605459141', '642780461']
+ss_target = []
+# '967844690', '822882635', '884194807',
+#'324324322', '945418445', '967844690','715993228', '343416534', '360189400', '597138344',
+#'889537330', '791174052', '514363366', '722787843', '109117347', '736257459',
+#'133439624', '160806690', '889537330', '715993228']
 
+
+'''
 def real_damage_count(ss_numbers):
-    pass
+
+    # take first first number
+    # creat new list with out number
+    # if a duplicate is found it poped out of the main list
+
+    for SS_number in ss
+        i = 0
+'''
+
+
+def real_damage_count(base_list, no_duplicate_list):
+    no_duplicate_list.append(base_list[0])
+
+    for ss_number in base_list:
+
+      if ss_number in no_duplicate_list:
+          pass
+      else:
+          no_duplicate_list.append(ss_number)
+      print ("base list :", base_list)
+      print ("no duplicate list :", no_duplicate_list)
+
+
+real_damage_count(ss, ss_target)
