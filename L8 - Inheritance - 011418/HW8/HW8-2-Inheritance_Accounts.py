@@ -1,9 +1,12 @@
 # Bank accounts keep track of their current balance
 class BankAccount:
 
+
+
     def __init__(self, act_balance=0):
         self.act_balance = act_balance
-        self.interest_rate = 0.2
+        self.interest_rate = 0.02
+        self.accumulate_interest(self.act_balance)
 
     
     # Return False if someone tries to deposit or withdraw a negative amount.
@@ -14,9 +17,15 @@ class BankAccount:
             return False
    
     #  Increase Acccount Balance by 2%
-    def accumulate_interest(self):
-        self.act_balance += act_balance * interest_rate    
-        return self.act_balance
+    def accumulate_interest(self, balance_change):
+        # Every time accumulate_interest is executed on a Child's account 
+        # the account always gets $10 added to the balance
+        if self.interest_rate == 0:
+            self.act_balance += 10
+            return self.act_balance
+        else:
+            self.act_balance += balance_change * self.interest_rate    
+            return self.act_balance
           
     # Deposit method returns the balance of the account after adding the deposited amount
     def deposit(self, deposit_amount):
@@ -25,14 +34,12 @@ class BankAccount:
             return False
         # Adds deposite to account balance
         self.act_balance += deposit_amount
-        # Update act_balance at class level
-        # ??? why can't i assign it to act_balance direct
-        act_balance_class = self.act_balance
+       
         # Adds interestes rate
-        self.accumulate_interest(act_balance_class)
+        self.accumulate_interest(self.act_balance)
         print ("Deposit - Amount:", deposit_amount)
-        print ("Deposit - Basic account has:", act_balance_class)
-        return act_balance_class
+        print ("Deposit - Basic account has:", self.act_balance)
+        return self.act_balance
    
     # Withdraw method returns the amount of money that was successfully withdrawn
     def withdraw(self, withdraw_amount):
@@ -41,27 +48,39 @@ class BankAccount:
              return False
         # Substract deposite to account balance
         self.act_balance -= withdraw_amount
-        # Update act_balance at class level
-        act_balance_class = self.act_balance
-         # Adds interestes rate
-        self.accumulate_interest(deposit_amount)
-        # ================================================  #
+
+
         print ("Withdraw - Amount:", withdraw_amount)
-        self.accumulate_interest(deposit_amount, withdraw_amount)
-        print ("Withdraw - Basic account has:", act_balance_class)
+        print ("Withdraw - Basic account has:", self.act_balance)
         return withdraw_amount
     
- 
+
+class ChildrensAccount(BankAccount):
+    def __init__(self): 
+        self.interest_rate = 0
+        super().__init__() 
+        
+
+    
+        # ================================================  #
 
 basic_account = BankAccount(100)
 basic_account.deposit(600)
 basic_account.withdraw(17)
 
+# basic account ftr
+    # print("Basic account has ${}".format(basic_account.balance))
+    # 
+    # print("Basic account has ${}".format(basic_account.balance))
+    # basic_account.accumulate_interest()
+    # print("Basic account has ${}".format(basic_account.balance))
+    # print()
 
-# print("Basic account has ${}".format(basic_account.balance))
-# 
-# print("Basic account has ${}".format(basic_account.balance))
-# basic_account.accumulate_interest()
-# print("Basic account has ${}".format(basic_account.balance))
-# print()
-
+childs_account = ChildrensAccount()
+childs_account.deposit(34)
+# Children account test
+    # print("Child's account has ${}".format(childs_account.balance))
+childs_account.withdraw(17)
+    # print("Child's account has ${}".format(childs_account.balance))
+    # childs_account.accumulate_interest()
+    # print("Child's account has ${}".format(childs_account.balance))
