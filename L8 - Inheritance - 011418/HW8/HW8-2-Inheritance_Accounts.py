@@ -1,13 +1,9 @@
 # Bank accounts keep track of their current balance
 class BankAccount:
-
-
-
+    
     def __init__(self, act_balance=0):
         self.act_balance = act_balance
-        self.interest_rate = 0.02
-        self.accumulate_interest(self.act_balance)
-
+     
     
     # Return False if someone tries to deposit or withdraw a negative amount.
     def positive_input_checker(self, deposite_amount=0, withdraw_amount=0):
@@ -17,24 +13,26 @@ class BankAccount:
             return False
    
     #  Increase Acccount Balance by 2%
-    def accumulate_interest(self, balance_change):
-        # Every time accumulate_interest is executed on a Child's account 
-        # the account always gets $10 added to the balance
+    def accumulate_interest(self, self.interest_rate = 0.02, balance_change = 0):
+
         if self.interest_rate == 0:
             self.act_balance += 10
             return self.act_balance
         else:
-            self.act_balance += balance_change * self.interest_rate    
+            interest_rate = 0.02
+            self.act_balance += balance_change * interest_rate    
             return self.act_balance
           
     # Deposit method returns the balance of the account after adding the deposited amount
     def deposit(self, deposit_amount):
+        
         # Checks if input is positive
         if self.positive_input_checker(deposit_amount) == False:
             return False
+        
         # Adds deposite to account balance
         self.act_balance += deposit_amount
-       
+
         # Adds interestes rate
         self.accumulate_interest(self.act_balance)
         print ("Deposit - Amount:", deposit_amount)
@@ -48,8 +46,6 @@ class BankAccount:
              return False
         # Substract deposite to account balance
         self.act_balance -= withdraw_amount
-
-
         print ("Withdraw - Amount:", withdraw_amount)
         print ("Withdraw - Basic account has:", self.act_balance)
         return withdraw_amount
@@ -57,9 +53,16 @@ class BankAccount:
 
 class ChildrensAccount(BankAccount):
     def __init__(self): 
-        self.interest_rate = 0
         super().__init__() 
-        
+        self.interest_rate = 0
+    
+    # def accumulate_interest(self):
+    #     # Every time accumulate_interest is executed on a Child's account 
+    #     # the account always gets $10 added to the balance
+    #     self.act_balance += 10  
+    #     return self.act_balance
+         
+    
 
     
         # ================================================  #
