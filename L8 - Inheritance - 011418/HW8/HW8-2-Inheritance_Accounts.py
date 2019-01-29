@@ -10,18 +10,14 @@ class BankAccount:
         if deposite_amount > 0 or withdraw_amount > 0:
             pass
         else:
+            print ("You have entered a negative value. Please be sure to in enter a positive value")
             return False
    
     #  Increase Acccount Balance by 2%
-    def accumulate_interest(self, self.interest_rate = 0.02, balance_change = 0):
-
-        if self.interest_rate == 0:
-            self.act_balance += 10
-            return self.act_balance
-        else:
-            interest_rate = 0.02
-            self.act_balance += balance_change * interest_rate    
-            return self.act_balance
+    def accumulate_interest(self, balance_change = 0):
+        interest_rate = 0.02
+        self.act_balance += balance_change * interest_rate    
+        return self.act_balance
           
     # Deposit method returns the balance of the account after adding the deposited amount
     def deposit(self, deposit_amount):
