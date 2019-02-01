@@ -46,12 +46,12 @@ employees = [
     "performance_review": "excellent"
   }
 ]
-
-
-
-
 # This line opens or creates a `names.csv` file. 
+
+
+
 with open('tps_report.csv', 'w', newline='') as csvfile:
+
   # These are the header row values at the top.
   fieldnames = ['first_name', 'last_name','job_title', 'hire_date','performance_review' ]
   # This opens the `DictWriter`. 
@@ -61,3 +61,19 @@ with open('tps_report.csv', 'w', newline='') as csvfile:
   # Write as many rows as you want!
   for i in employees:
     writer.writerow(i)
+
+with open('tps_report.csv','r') as csvinput:
+    with open('tps_report.csv', 'w') as csvoutput:
+        writer = csv.writer(csvoutput, lineterminator='\n')
+        reader = csv.reader(csvinput)
+
+        all = []
+        row = next(reader)
+        row.append('finished_review')
+        all.append(row)
+
+        for row in reader:
+            row.append(row[0])
+            all.append(row)
+
+        writer.writerows(all)
