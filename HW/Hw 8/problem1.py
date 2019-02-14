@@ -1,6 +1,5 @@
 import csv
 
-
 employees = [
   {
     "first_name": "Bill", 
