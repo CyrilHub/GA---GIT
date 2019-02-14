@@ -45,17 +45,12 @@ employees = [
     "performance_review": "excellent"
   }
 ]
-<<<<<<< HEAD
- 
-print(employees[0])
-=======
 # This line opens or creates a `names.csv` file. 
 
 x = employees[1]
 lenght = len(employees)
 print (lenght)
 print (x)
->>>>>>> 1fd44f3f211be731277147833db099d1990d6c29
 
  
 with open('tps_report.csv', 'w', newline='') as csvfile:
@@ -65,17 +60,6 @@ with open('tps_report.csv', 'w', newline='') as csvfile:
   writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
   # Write out the header row (this only needs to be done once!). 
   writer.writeheader()
-<<<<<<< HEAD
-  # Write as many rows as you want! 
-  # for i in emplpoyees:
-  for i in len(employees):
-    writer.writerow(employees[i]) 
-
-
-# Report is a list of objects. # The keys in these objects will be the header fields of your spreadsheet.
-# report = [{...}, {...}, {...}]
-=======
   # Write as many rows as you want!
   for i in employees:
     writer.writerow(i)
->>>>>>> 1fd44f3f211be731277147833db099d1990d6c29

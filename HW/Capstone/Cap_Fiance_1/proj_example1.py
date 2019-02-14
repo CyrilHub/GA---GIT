@@ -2,6 +2,8 @@
 
 from flask import Flask, render_template
 import requests
+import CVS
+
 
 app = Flask(__name__)
 
@@ -60,3 +62,28 @@ def company(user_ticker):
 if __name__ == '__main__':
     app.run(debug=True)
     # fetchCompany("goog")
+
+
+
+
+# Creating CVS files
+with open('stock.csv', 'w', newline='') as csvfile:
+  # These are the header row values at the top.
+  fieldnames = ['Current_Price' ]
+  # This opens the `DictWriter`. 
+  writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+  # Write out the header row (this only needs to be done once!). 
+  writer.writeheader()
+  # NOT Being used Write as many rows as you want!
+    #for i in employees:
+    #writer.writerow(i)
+
+
+# Append row
+with open('mycsvfile.csv','a',newline='') as f:
+    writer=csv.writer(f)
+    writer.writerow([0])
+   
+
+with open('mycsvfile.csv') as f:
+    print(f.read())
