@@ -1,6 +1,5 @@
 import csv
 
-
 employees = [
   {
     "first_name": "Bill", 
@@ -53,6 +52,7 @@ lenght = len(employees)
 print (lenght)
 print (x)
 
+ 
 with open('tps_report.csv', 'w', newline='') as csvfile:
   # These are the header row values at the top.
   fieldnames = ['first_name', 'last_name','job_title', 'hire_date','performance_review' ]
