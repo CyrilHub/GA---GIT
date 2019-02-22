@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<title> Devlin Equity Prtfolio </title>
+
+<head>
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+ <h1> {{ x["name"] }} </h1>
+
+ <h2> Sector: {{ x["sector"] }} </h2>
+
+ <h2> Market cap </h2>
+ {{ '${:,.2f}'.format(x["market_cap"]) }}
+
+ <h2> Ticker </h2>
+ {{ x["ticker"].upper() }}
+
+ <h2> Purchase Price </h2>
+ {{ '${:,.2f}'.format(x["purchase_price"]) }}
+
+ <h2> Current Price </h2>
+ {{ '${:,.2f}'.format(x["current_price"]) }}
+
+ <h2> Previous Close </h2>
+ {{ '${:,.2f}'.format(x["prev_close"]) }}
+
+
+
+
+</body>
+
+</html>
