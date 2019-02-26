@@ -1,5 +1,13 @@
 search_or_ratings = 2
 default_movie_list = ["Back to the Future", "Blade", "Spirited Away", "She's the Man", "Rush Hour 2"]
+import request
+
+
+def get_api_key():
+      fo = open("secrets.txt")
+      return fo.read().strip()
+
+
 
 class Movie:
   def __init__(self, movie_data):
@@ -7,21 +15,32 @@ class Movie:
 
 
   def get_movie_title(self):
-    return self.movie_data["title"]
+    return self.movie_data["Title"]
 
   def get_movie_rating(self, source="hard_coded"):
 
-    for x in self.movie_data["ratings"]:
+    for x in self.movie_data["Ratings"]:
         if x["source"] == source:
             return x["value"]
 
     print("Error: Movie source {} was not found".format(source))
     return None
 
-    def get_api_key():
-      api_key = open("secrets.txt","r")
-      return
+
       
+class OMDBApi:
+   def __init__(self, search_string):
+    self.search_string = search_string
+   
+   
+   def list_search_result_request(self):
+     api_key = get_api_key()
+
+
+    get_movie = requests.get("http://www.omdbapi.com/", {"apikey": str(api_key) })
+
+OMBD_test =  OMDBApi(search_string)
+
 
 
 def return_single_movie_object(movie_title, movie_rating):
@@ -42,18 +61,20 @@ def list_search_results(movie_titles):
     print("    "+movie)
 
 def main():
-search_or_ratings = None
+  print (str(get_api_key())
+  return
+  search_or_ratings = None
   while search_or_ratings != "1" and search_or_ratings != "2":
     search_or_ratings = input("Enter a 1 or 2")
 
   if search_or_ratings == "1":
       list_search_results(default_movie_list)
-      break
+      # break
   elif search_or_ratings == "2":
       print_single_movie_rating("She's the Man")
-      break
+      # break
 
 
 
-if __name__ == "__main__":
-  main()
+# if __name__ == "__main__":
+#   main()
