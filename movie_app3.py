@@ -59,7 +59,7 @@ class Movie:
     print("Error: Movie source {} was not found".format(source))
     return None
 
-
+# Not needed?
 # def print_single_movie_rating(movie_query):
 #   movie = return_single_movie_object(movie_query, -1)
 #   print("The rating for" + movie.get_movie_title() + " is " + str(movie.get_movie_rating()))
