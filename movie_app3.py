@@ -104,6 +104,3 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
-# x = OMDBApi()
-# movie = x.fetch_single_movie_by_title("star")
-# print(movie.get_movie_title(), movie.get_movie_id())
