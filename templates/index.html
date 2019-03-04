@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Good Artists Copy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+
+
+    
+    <h2>Hi there {{name}} It's great to see you today!</h2>
+    <img src="{{ poster }}" />
+    <p>
+        <strong>Year Released: </strong> {{ year }}
+    </p>
+    
+    {% endif %}
+</body>
+
+</html>

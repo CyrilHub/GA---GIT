@@ -97,11 +97,8 @@ def main():
 app = Flask(__name__)
 @app.route("/")
 def home():
-    search_query = request.args.get("query", "results")
-    api = OMDBApi()
-    results = api.list_search_result_request(search_query)
-    print(results)
-    return render_template("home.html", query=search_query, results=results)
+    user = "Cyril"
+    return render_template("index.html", name=user)
 
 if __name__ == "__main__":
     app.run(debug=True)
